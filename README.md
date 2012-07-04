@@ -3,11 +3,10 @@ Test-Repo
 
 1.  Web Application technologies including
   
-  •  Drupal 6
+    •  Drupal 6
+  	•	Drupal 7
   
-  •	Drupal 7
-  
-  •	SharePoint
+   •	SharePoint
   
   •	HTML5 Multichannel YUI Widget
   
