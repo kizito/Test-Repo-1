@@ -1,5 +1,5 @@
 Test-Repo
 =========
 
-WordPress  dasd	asdas
-Java stand alone	adasd	asd
+  WordPress  dasd	asdas
+  Java stand alone	adasd	asd
