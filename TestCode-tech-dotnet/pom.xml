@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.photon.phresco</groupId>
+    <artifactId>TestCode-tech-dotnet</artifactId>
+    <name>TestCode-tech-dotnet</name>
+    <version>3.5</version>
+    <build>
+        <sourceDirectory>source/src</sourceDirectory>
+        <directory>do_not_checkin/target</directory>
+        <plugins>
+            <plugin>
+                <groupId>com.photon.phresco.plugins</groupId>
+                <artifactId>phresco-maven-plugin</artifactId>
+                <version>2.0.0.27002</version>
+                <extensions>true</extensions>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>ci</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-clean-plugin</artifactId>
+                        <version>2.5</version>
+                        <executions>
+                            <execution>
+<id>default-clean</id>
+<phase>pre-clean</phase>
+<goals>
+    <goal>clean</goal>
+</goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <filesets>
+<fileset>
+    <directory>do_not_checkin/build</directory>
+    <includes>
+        <include>**/*</include>
+							  </includes>
+    <followSymlinks>false</followSymlinks>
+							</fileset>
+						  </filesets>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    <repositories>
+        <repository>
+            <id>photon</id>
+            <url>http://172.16.17.226:8080/repository/content/groups/public/</url>
+        </repository>
+    </repositories>
+    <properties>
+        <sonar.dotnet.visualstudio.solution.file>source/src/SampleWebApp.sln</sonar.dotnet.visualstudio.solution.file>
+        <sonar.language>cs</sonar.language>
+        <sonar.ndeps.mode>skip</sonar.ndeps.mode>
+        <sonar.fxcop.mode>skip</sonar.fxcop.mode>
+        <phresco.unitTest.dir>/source/test</phresco.unitTest.dir>
+        <phresco.unitTest.report.dir>/source/test/target/nunit-report</phresco.unitTest.report.dir>
+        <phresco.unitTest.testsuite.xpath>/test-results/test-suite/results/test-suite/results/test-suite/results/test-suite</phresco.unitTest.testsuite.xpath>
+        <phresco.unitTest.testcase.path>/results/test-case</phresco.unitTest.testcase.path>
+        <phresco.functionalTest.selenium.tool>webdriver</phresco.functionalTest.selenium.tool>
+        <phresco.functionalTest.dir>/test/functional</phresco.functionalTest.dir>
+        <phresco.functionalTest.report.dir>/test/functional/target/nunit-report</phresco.functionalTest.report.dir>
+        <phresco.functionalTest.testsuite.xpath>/test-results/test-suite/results/test-suite/results/test-suite</phresco.functionalTest.testsuite.xpath>
+        <phresco.functionalTest.testcase.path>/results/test-case</phresco.functionalTest.testcase.path>
+        <phresco.functionalTest.adapt.config>/test/functional/src/test/sharepoint/phresco/tests/phresco-env-config.xml</phresco.functionalTest.adapt.config>
+        <phresco.performanceTest.dir>/test/performance</phresco.performanceTest.dir>
+        <phresco.performanceTest.report.dir>/test/performance/dir_type/results/jmeter</phresco.performanceTest.report.dir>
+        <phresco.loadTest.dir>/test/load</phresco.loadTest.dir>
+        <phresco.loadTest.report.dir>/test/load/results/jmeter</phresco.loadTest.report.dir>
+    </properties>
+</project>
